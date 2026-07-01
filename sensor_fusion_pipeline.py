@@ -1,6 +1,6 @@
 """
 STARi Sensor Fusion Core Pipeline
-Author: [Your Name / STARi Command]
+Author: [Inyama C. Mulambya / STARi Command]
 Description: Open-source precision agriculture data processing engine.
              Blends Sentinel-2 Optical (NDVI/NDRE) and Sentinel-1 SAR Radar 
              arrays to extract zonal statistics and phone-ready GPS perimeters.
@@ -28,7 +28,7 @@ class ClimateIntelligenceEngine:
         # 2. Pipeline Track A: Optical Imagery Parsing (Sentinel-2)
         def mask_clouds(image):
             scl = image.select('SCL')
-            mask = scl.neq(3).and_(scl.neq(8)).and_(scl.neq(9)).and_(scl.neq(10))
+            mask = scl.neq(3).And(scl.neq(8)).And(scl.neq(9)).And(scl.neq(10))
             return image.updateMask(mask)
 
         def add_ag_indices(image):
